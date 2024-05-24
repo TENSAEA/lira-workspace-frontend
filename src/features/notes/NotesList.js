@@ -1,4 +1,4 @@
-import { selectNoteById, useGetNotesQuery } from "./notesApiSlice";
+import { useGetNotesQuery } from "./notesApiSlice";
 import Note from "./Note";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../../features/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 import { selectNotesByUsername } from "./notesApiSlice";
+
 import {
   Table,
   TableBody,
@@ -20,10 +21,12 @@ import {
   Typography,
   Box,
   Button,
+  useMediaQuery,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-
+import { useTheme } from "@mui/material/styles";
 const NotesList = () => {
+  const theme = useTheme();
   const navigate = useNavigate();
   const { isManager, isAdmin } = useAuth();
   const token = useSelector(selectCurrentToken);
@@ -32,6 +35,8 @@ const NotesList = () => {
   const currentUserNotes = useSelector((state) =>
     selectNotesByUsername(state, username)
   );
+
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const {
     data: notes,
@@ -80,13 +85,21 @@ const NotesList = () => {
     );
 
     content = (
-      <Container maxWidth="lg" sx={{ mt: 4, display: "flex", gap: 2 }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          mt: 4,
+          display: "flex",
+          gap: 2,
+          flexDirection: isSmallScreen ? "column" : "row",
+        }}
+      >
         <TableContainer
           component={Paper}
           sx={{
             borderRadius: 2,
             flexGrow: 1,
-            maxHeight: 500, // Approximate height for 4 rows + header
+            maxHeight: 380, // Approximate height for 4 rows + header
             overflowY: "auto",
           }}
         >

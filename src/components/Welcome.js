@@ -9,6 +9,8 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import PeopleIcon from "@mui/icons-material/People";
 import { useTheme } from "@mui/material/styles";
 import { keyframes } from "@emotion/react";
+import { useMediaQuery } from "@mui/material";
+import { breakpoints } from "@mui/system";
 
 // Define animations
 const fadeIn = keyframes`
@@ -24,6 +26,7 @@ const pulse = keyframes`
 const Welcome = () => {
   const { isManager, isAdmin } = useAuth();
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box
@@ -44,7 +47,7 @@ const Welcome = () => {
           }}
         >
           <Typography
-            variant="h3"
+            variant={isSmallScreen ? "h5" : "h3"}
             fontFamily={"initial"}
             gutterBottom
             sx={{

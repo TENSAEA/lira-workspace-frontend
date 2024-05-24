@@ -15,13 +15,15 @@ import {
   CircularProgress,
   Typography,
   Box,
+  useMediaQuery,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
 
 const UsersList = () => {
   const navigate = useNavigate();
-  console.log("UsersList is being rendered");
-
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const {
     data: users,
     isLoading,
@@ -64,13 +66,19 @@ const UsersList = () => {
           display="flex"
           justifyContent="space-between"
           alignItems="flex-start"
+          sx={{
+            mt: 4,
+            display: "flex",
+            gap: 2,
+            flexDirection: isSmallScreen ? "column" : "row",
+          }}
         >
           <TableContainer
             component={Paper}
             sx={{
               borderRadius: 2,
               flexGrow: 1,
-              maxHeight: 500,
+              maxHeight: 380,
               overflowY: "auto",
             }} // Adjust maxHeight as needed
           >

@@ -26,13 +26,14 @@ const DashFooter = () => {
     <Box
       component="footer"
       sx={{
-        py: 3,
-        px: 2,
+        py: isSmallScreen ? 0 : 0.5,
+        px: 4,
         backgroundColor: "#15202b",
         color: "#fff",
         position: "fixed",
         bottom: 0,
         width: "100%",
+        height: "auto",
       }}
     >
       <Container maxWidth="xl">
@@ -41,7 +42,7 @@ const DashFooter = () => {
             display: "flex",
             justifyContent: isSmallScreen ? "center" : "flex-start",
             alignItems: "center",
-            flexDirection: isSmallScreen ? "column" : "row",
+            flexDirection: isSmallScreen ? "row" : "row",
             textAlign: isSmallScreen ? "center" : "left",
           }}
         >
@@ -49,9 +50,9 @@ const DashFooter = () => {
             {icon}
           </Link>
 
-          <Box sx={{ mt: isSmallScreen ? 2 : 0, ml: !isSmallScreen ? 2 : 0 }}>
+          <Box sx={{ mt: isSmallScreen ? 1 : 2, ml: !isSmallScreen ? 2 : 1 }}>
             <Typography
-              variant={isSmallScreen ? "h5" : "h4"}
+              variant={isSmallScreen ? "h6" : "h4"}
               sx={{
                 fontWeight: "bold",
                 color: "white",
@@ -90,7 +91,7 @@ const DashFooter = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            mt: 2,
+            mt: 1,
             flexDirection: isSmallScreen ? "column" : "row",
           }}
         >
