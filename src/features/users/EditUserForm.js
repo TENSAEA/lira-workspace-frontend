@@ -62,11 +62,9 @@ const EditUserForm = ({ user }) => {
       roles,
       active,
     };
-
     if (password) {
       userToUpdate.password = password;
     }
-
     await updateUser(userToUpdate);
     navigate("/dash/users");
   };
@@ -101,12 +99,14 @@ const EditUserForm = ({ user }) => {
             border-radius: 4px;
             max-width: 600px;
             margin: auto;
+            box-sizing: border-box;
           }
           .form__title-row {
             margin-bottom: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
           }
           .form__action-buttons .icon-button {
             margin-right: 0.5rem;
@@ -114,6 +114,7 @@ const EditUserForm = ({ user }) => {
             border: none;
             color: white;
             cursor: pointer;
+            font-size: 1rem;
           }
           .form__action-buttons .icon-button:first-child {
             background-color: ${green[500]};
@@ -124,9 +125,9 @@ const EditUserForm = ({ user }) => {
           }
           .form__label {
             display: block;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             font-weight: 500;
-            font-size:1.2em;
+            font-size: 1.1rem;
           }
           .form__input,
           .form__select {
@@ -136,23 +137,14 @@ const EditUserForm = ({ user }) => {
             border: 1px solid ${grey[400]};
             border-radius: 4px;
           }
-          .form__select{
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 1rem;
-            border: 1px solid ${grey[400]};
-            border-radius: 4px;
-            font-size: 1rem;
-          }
           .form__checkbox-container {
-            display: block;
+            display: flex;
+            align-items: center;
             margin-bottom: 1rem;
             font-weight: 500;
-            padding:1rem;
           }
           .form__checkbox {
             margin-left: 0.5rem;
-            margin-bottom:1rem;
           }
           @media(max-width: 600px) {
             .form__title-row {
@@ -160,8 +152,18 @@ const EditUserForm = ({ user }) => {
               align-items: flex-start;
             }
             .form__action-buttons {
-              order: -1;
-              margin-bottom: 1rem;
+              display: flex;
+              justify-content: space-around;
+              width: 100%;
+            }
+            .form__action-buttons .icon-button {
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .form__label {
+              font-size: 1rem;
             }
           }
         `}

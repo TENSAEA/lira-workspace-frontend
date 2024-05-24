@@ -110,7 +110,7 @@ const EditNoteForm = ({ note, users }) => {
           boxShadow: 3,
           backgroundColor: "white",
           borderRadius: 2,
-          mt: 5,
+          mt: 2,
         }}
       >
         {errContent && <Alert severity="error">{errContent}</Alert>}
@@ -161,7 +161,7 @@ const EditNoteForm = ({ note, users }) => {
             variant="outlined"
             margin="normal"
             multiline
-            rows={4}
+            rows={1.5}
             required
             error={!text}
             helperText={!text && "Text is required"}
@@ -190,7 +190,7 @@ const EditNoteForm = ({ note, users }) => {
             </Select>
           </FormControl>
 
-          <Box display="flex" justifyContent="space-between" mt={2}>
+          <Box display="flex" justifyContent="space-between" mt={1}>
             <Typography variant="body2" color="textSecondary">
               Created:
               <br />
