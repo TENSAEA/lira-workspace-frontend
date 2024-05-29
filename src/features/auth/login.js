@@ -101,7 +101,7 @@ const Login = () => {
             fontFamily="initial"
             gutterBottom
           >
-            Test-Admin-Username:lira & Test-Admin-Password:lira
+            Test-Admin-Username:Lira & Test-Admin-Password:Lira
           </Typography>
           <Typography
             variant="body"
@@ -109,7 +109,7 @@ const Login = () => {
             fontFamily="initial"
             gutterBottom
           >
-            Test-Employee-Username:Lira & Test-Employee-Password:Lira
+            Test-Employee-Username:lira & Test-Employee-Password:lira
           </Typography>
           {showAlert && (
             <Alert severity="error" onClose={() => setShowAlert(false)}>
