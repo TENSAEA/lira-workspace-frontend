@@ -95,6 +95,22 @@ const Login = () => {
           <Typography variant="h4" component="h1" gutterBottom>
             Employee Login
           </Typography>
+          <Typography
+            variant="body"
+            component="h5"
+            fontFamily="initial"
+            gutterBottom
+          >
+            Test-Admin-Username:lira & Test-Admin-Password:lira
+          </Typography>
+          <Typography
+            variant="body"
+            component="h5"
+            fontFamily="initial"
+            gutterBottom
+          >
+            Test-Employee-Username:Lira & Test-Employee-Password:Lira
+          </Typography>
           {showAlert && (
             <Alert severity="error" onClose={() => setShowAlert(false)}>
               {errMsg}
