@@ -33,7 +33,6 @@ The Lira Workspace frontend provides a user-friendly interface for the Lira work
 - Redux Toolkit Query
 - Material-UI (or any other UI library used)
 - React Router (for routing)
-- Other libraries (mention any other significant libraries)
 
 ## Installation
 
